@@ -1,0 +1,56 @@
+@use '../../../color';
+
+.item {
+    margin: 0 auto;
+    padding: 1.25rem;
+    min-width: 15.625rem;
+    max-width: 21.875rem;
+    min-height: 18.75rem;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    box-shadow: 2px 2px 7px #dcdcdc;
+    text-align: center;
+
+    @media screen and (min-width: 640px) {
+        width: 21.875rem;
+        min-height: 21.875rem;
+    }
+
+    &__image {
+        min-width: 9.375rem;
+        max-width: 15.625rem;
+        height: 9.375rem;
+
+        @media screen and (min-width: 640px) {
+            max-width: 18.75rem;
+            height: 12.5rem;
+        }
+
+        &:hover {
+            opacity: 0.8;
+            transition: opacity 0.2s linear;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        padding-top: 0.9375rem;
+        font-weight: bold;
+        color: color.$link-active;
+    }
+
+    &__price {
+        margin: 0;
+        color: #808080;
+    }
+
+    &__status {
+        color: #ff0000;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+    }
+}
+
+.available {
+    color: #008000;
+}

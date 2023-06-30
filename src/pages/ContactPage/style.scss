@@ -1,0 +1,126 @@
+@use '../../color';
+
+.page {
+  width: 100%;
+}
+
+.maps {
+  width: 100%;
+}
+
+.section__flex {
+  margin: 0 auto;
+  max-width: 87.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.touch {
+
+  &__headline {
+    text-align: center;
+  }
+
+  &__content {
+      margin: 1.875rem auto;
+      padding: 0.625rem;
+      width: 21.875rem;
+      height: 18.75rem;
+      text-align: center;
+      font-weight: bold;
+      border: 1px solid color.$border;
+      box-shadow: 2px 2px 7px color.$border;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    color: color.$link-active;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    margin: 1rem 0;
+    color: color.$link-default;
+    text-decoration: none;
+  }
+
+  &__image {
+    width: 4.6875rem;
+    height: 4.6875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 87.5rem;
+
+  &__label {
+    margin-top: 1rem;
+    display: block;
+    color: color.$link-active;
+    font-weight: bold;
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 2px solid color.$border;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+
+    &:focus {
+      border-color: color.$link-active;
+    }
+  }
+
+  &__button {
+    display: block;
+    background-color: color.$link-active;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: none;
+    padding: 0.7rem 2rem;
+    margin: 0.5rem 0;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+      background-color: color.$link-default;
+    }
+  }
+
+  &__message {
+    font-size: 1.125rem;
+    color: color.$link-active;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+#terms {
+  width: 1.25rem;
+}
+
+.terms {
+  display: inline-block;
+}
+
+.mouse-enter {
+  background-color: color.$bg-primary;
+  border: 1px solid #dbd1bd;
+}
+
+.padding-reset {
+  padding: 0;
+  margin-bottom: -0.3125rem;
+}

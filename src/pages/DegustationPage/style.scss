@@ -1,0 +1,278 @@
+@use '../../color';
+
+.page {
+    width: 100%;
+}
+
+.content, .accordion {
+    margin: 0 auto;
+    max-width: 87.5rem;
+}
+
+.box {
+    margin: 0 auto;
+    padding-top: 1.875rem;
+    max-width: 87.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.25rem;
+
+    @media screen and (min-width: 640px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+    }
+
+    &__cup, &__relax, &__customized {
+        margin-top: 2.5rem;
+        padding: 1.25rem;
+        width: 18.75rem;
+        height: 30rem;
+        background-color: #ffffff;
+        border: 1px solid color.$border;
+        box-shadow: 2px 2px 7px color.$border;
+        text-align: center;
+        align-self: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &::before {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #7c6b4c;
+            top: -2.5rem;
+            left: 0;
+            position: absolute;
+            padding: 0.3125rem 1.875rem;
+            width: 15rem;
+            height: 1.875rem;
+            background-color: #dbd1bd;
+            text-align: center;
+        }
+
+        @media screen and (min-width: 640px) {
+            width: 21.875rem;
+
+            &::before {
+                width: 18.125rem;
+            }
+        }
+
+        @media screen and (min-width: 850px) {
+            margin-top: 0;
+
+            &::before {
+                -webkit-transform: rotate(270deg);
+                -moz-transform: rotate(270deg);
+                -o-transform: rotate(270deg);
+                transform: rotate(270deg);
+                top: 4rem;
+                left: -6.5625rem;
+                position: absolute;
+                width: 6.875rem;
+            }
+        }
+    }
+
+    &__cup {
+        &::before {
+            content: "Na skleničku";
+        }
+    }
+
+    &__relax {
+        &::before {
+            content: "Na pohodu";
+        }
+    }
+
+    &__customized {
+        &::before {
+            content: "Na míru";
+        }
+    }
+
+    &__image--cup, &__image--relax, &__image--customized {
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &__title {
+        margin: 0;
+        padding-top: 1.25rem;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        font-size: 0.875rem;
+        height: 11.25rem;
+    }
+
+    &__button {
+        padding: 0.625rem;
+        display: inline-block;
+        background-color: color.$link-active;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.2s linear;
+
+        &:hover {
+            cursor: pointer;
+            background-color: color.$link-default;
+        }
+    }
+}
+
+.reservation {
+    margin: 0 auto;
+    max-width: 87.5rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.6s ease-in-out;
+
+    &__inner {
+        padding: 3.125rem;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__form--label {
+        margin-top: 1rem;
+        display: block;
+        color: color.$link-active;
+        font-weight: bold;
+    }
+
+    &__form--input {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border: 2px solid color.$border;
+        outline: none;
+        font-family: inherit;
+        font-size: 0.9rem;
+
+        &:focus {
+            border-color: color.$link-active;
+        }
+    }
+
+    &__form--button {
+        display: block;
+        background-color: color.$link-active;
+        color: #ffffff;
+        text-transform: uppercase;
+        border: none;
+        padding: 0.7rem 2rem;
+        margin: 0.5rem 0;
+        transition: background-color 0.2s linear;
+
+        &:hover {
+            background-color: color.$link-default;
+        }
+    }
+
+    &__form--message {
+        font-size: 1.125rem;
+        color: color.$link-active;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.form__flex--row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    @media screen and (min-width: 640px) {
+        flex-direction: row;
+    }
+
+}
+
+.form__flex--coll {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+#select-packet {
+    padding: 0.4375rem;
+}
+
+#number {
+    padding: 0.5625rem;
+}
+
+.accordion {
+    &__title {
+        text-align: center;
+    }
+
+    &__description {
+        margin-bottom: 1.25rem;
+        text-align: center;
+    }
+
+    &__container + &__container {
+        border-top: 1px solid #ffffff;
+    }
+
+    &__label {
+        margin: 0;
+        padding: 0.625rem;
+        background-color: color.$link-active;
+        cursor: pointer;
+        color: #ffffff;
+        transition: background-color 0.2s linear;
+        text-transform: uppercase;
+
+        &:after {
+            content: '\002B';
+            color: #ffffff;
+            font-weight: bold;
+            float: right;
+            margin-left: 0.3125rem;
+        }
+
+        &:hover {
+            background-color: color.$link-default;
+        }
+    }
+
+    &__content {
+        margin: 0;
+        padding: 0 0.625rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        background-color: color.$bg-primary;
+    }
+}
+
+.content--active {
+    display: block;
+}
+
+.reservation--active {
+    display: block;
+}
+
+.label--active {
+
+    &:after {
+        content: "\2212";
+    }
+}

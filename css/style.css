@@ -1,0 +1,66 @@
+.notfound {
+  margin: 0 auto;
+  max-width: 87.5rem;
+  text-align: center;
+}
+@media screen and (min-width: 640px) {
+  .notfound {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.25rem;
+  }
+}
+.notfound__image {
+  margin: 1rem auto;
+}
+@media screen and (min-width: 640px) {
+  .notfound__image {
+    flex: 1 0 20%;
+  }
+}
+.notfound__content {
+  padding: 0 1.25rem;
+}
+@media screen and (min-width: 640px) {
+  .notfound__content {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 640px) {
+  .notfound__content {
+    flex: 1 0 80%;
+  }
+}
+.notfound__title {
+  margin: 0;
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: #151723;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 640px) {
+  .notfound__title {
+    text-align: left;
+  }
+}
+.notfound__perex {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+  color: #151723;
+}
+.notfound__description {
+  font-weight: 400;
+}
+.notfound__link {
+  display: inline-block;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #7c6b4c;
+}
+.notfound__link:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */

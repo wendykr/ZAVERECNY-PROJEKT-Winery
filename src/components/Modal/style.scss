@@ -1,0 +1,57 @@
+@use '../../color';
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(#111111, 0.3);
+    color: color.$link-active;
+    border-radius: 5px;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+
+    &__container {
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+        background-color:#dbd1bd;
+        width: 21.875rem;
+
+        @media screen and (min-width: 640px) {
+            width: 31.25rem;
+        }
+    }
+
+    &__paragraph {
+        font-size: 1.125rem;
+        font-weight: bolder;
+    }
+
+    &__button--close {
+        margin-right: 0.625rem;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #ffffff;
+        font-size: 1.875rem;
+        cursor: pointer;
+
+        @media screen and (min-width: 640px) {
+            font-size: 1.625rem;
+        }
+
+        &:hover {
+            color: color.$link-active;
+        }
+    }
+}
+
+#modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

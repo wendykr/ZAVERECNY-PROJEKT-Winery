@@ -1,0 +1,33 @@
+@use '../../color';
+
+.footer {
+    padding: 0.625rem 0;
+    width: 100%;
+    background-color: color.$bg-secondary;
+    color: color.$font-secondary;
+    text-align: center;
+
+    &__text {
+        margin: 0 auto;
+        font-size: 0.75rem;
+        max-width: 39.9375rem;
+
+        @media screen and (min-width: 640px) {
+            font-size: 0.875rem;
+            max-width: 59.9375rem;
+        }
+
+        @media screen and (min-width: 960px) {
+            max-width: 87.5rem;
+        }
+    }
+}
+
+.footer__link {
+        color: color.$font-secondary;
+
+    &:hover {
+        color: color.$link-active;
+        text-decoration: none;
+    }
+}
