@@ -6,6 +6,7 @@
 
     @media screen and (min-width: 640px) {
         flex-basis: 50%;
+        margin-right: 2.5rem;
     }
 
     &__list {
@@ -18,17 +19,15 @@
         position: absolute;
         top: 100%;
         right: 0;
-        z-index: 2;
         background-color: color.$bg-secondary;
         transition: max-height 0.5s ease-in-out;
 
         @media screen and (min-width: 640px) {
             margin: 0 auto;
-            max-height: 5rem;
+            max-height: none;
             display: flex;
             overflow: auto;
-            position: relative;
-            top: 0;
+            position: static;
             justify-content: space-around;
             background-color: transparent;
             transition-property: none;

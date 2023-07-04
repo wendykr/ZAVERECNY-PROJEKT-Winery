@@ -24,7 +24,7 @@ export const Navigation = () => {
     } else if (location.pathname === '/contact') {
         element.querySelector('.link-contact').classList.add('navigation__link--active');
     }
-    
+
     element.querySelector('.navigation__toogler').addEventListener('click', () => {
         const content = element.querySelector('.navigation__list');
 
@@ -36,7 +36,7 @@ export const Navigation = () => {
 
         content.classList.toggle('show-navigation');
     });
-    
+
     element.querySelector('.navigation__toogler').addEventListener('mouseover', () => {
         element.querySelector('.navigation__toogler').style.cursor = 'pointer';
         element.querySelector('.navigation__toogler').classList.add('hover');
