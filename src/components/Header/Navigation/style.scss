@@ -86,11 +86,11 @@
         }
     }
 
-    &__toogler {
-        margin: -1.25rem 2.5rem 0 0;
-        font-size: 1.5rem;
+    &__toggler {
+        margin: 0 2.5rem 0 0;
         align-self: flex-start;
         position: absolute;
+        top: 40%;
         right: 0;
 
         @media screen and (min-width: 640px) {

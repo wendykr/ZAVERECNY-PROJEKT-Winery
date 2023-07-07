@@ -36,6 +36,16 @@ export const CataloguePage = () => {
                     </label>
                     <select class="filters__select" id="select-status">
                     </select>
+                    <label class="filters__label">
+                        Barva
+                    </label>
+                    <select class="filters__select" id="select-color">
+                    </select>
+                    <label class="filters__label">
+                        Obsah cukru
+                    </label>
+                    <select class="filters__select" id="select-sugar">
+                    </select>
                 <button class="filters__button" type="submit">Zobrazit</button>
                 </form>
                 <div class="filters__form">
@@ -54,84 +64,132 @@ export const CataloguePage = () => {
         {
             id: 0,
             imageUrl: images01,
-            title: "Rubicone IGP Chardonay",
+            title: 'Rubicone IGP Chardonay',
+            feature: {
+                color: 'bílé',
+                sugar: 'suché',
+            },
             price: 484,
             status: true,
         },
         {
             id: 1,
             imageUrl: images02,
-            title: "Freghino Litro",
+            title: 'Freghino Litro',
+            feature: {
+                color: 'růžové',
+                sugar: 'polosuché',
+            },
             price: 242,
             status: false,
         },
         {
             id: 2,
             imageUrl: images03,
-            title: "Franquette",
+            title: 'Franquette',
+            feature: {
+                color: 'červené',
+                sugar: 'sladké',
+            },
             price: 303,
             status: false,
         },
         {
             id: 3,
             imageUrl: images04,
-            title: "La Garmaise",
+            title: 'La Garmaise',
+            feature: {
+                color: 'bílé',
+                sugar: 'suché',
+            },
             price: 180,
             status: false,
         },
         {
             id: 4,
             imageUrl: images05,
-            title: "HOMOK",
+            title: 'HOMOK',
+            feature: {
+                color: 'růžové',
+                sugar: 'polosuché',
+            },
             price: 199,
             status: true,
         },
         {
             id: 5,
             imageUrl: images06,
-            title: "Beaujolais-Villages",
+            title: 'Beaujolais-Villages',
+            feature: {
+                color: 'červené',
+                sugar: 'sladké',
+            },
             price: 194,
             status: false,
         },
         {
             id: 6,
             imageUrl: images07,
-            title: "Koala Vert",
+            title: 'Koala Vert',
+            feature: {
+                color: 'bílé',
+                sugar: 'suché',
+            },
             price: 190,
             status: false,
         },
         {
             id: 7,
             imageUrl: images08,
-            title: "Guefen",
+            title: 'Guefen',
+            feature: {
+                color: 'růžové',
+                sugar: 'polosladké',
+            },
             price: 191,
             status: true,
         },
         {
             id: 8,
             imageUrl: images09,
-            title: "Rosato La Salita",
+            title: 'Rosato La Salita',
+            feature: {
+                color: 'červené',
+                sugar: 'sladké',
+            },
             price: 278,
             status: true,
         },
         {
             id: 9,
             imageUrl: images10,
-            title: "Bianco Damigiana",
+            title: 'Bianco Damigiana',
+            feature: {
+                color: 'bílé',
+                sugar: 'suché',
+            },
             price: 155,
             status: true,
         },
         {
             id: 10,
             imageUrl: images11,
-            title: "Atelier",
+            title: 'Atelier',
+            feature: {
+                color: 'růžové',
+                sugar: 'polosladké',
+            },
             price: 204,
             status: false,
         },
         {
             id: 11,
             imageUrl: images12,
-            title: "La Mosca",
+            title: 'La Mosca',
+            feature: {
+                color: 'červené',
+                sugar: 'sladké',
+            },
             price: 281,
             status: false,
         },
@@ -140,30 +198,72 @@ export const CataloguePage = () => {
     const status = [
         {
             id: 0,
-            name: "Vše",
+            name: 'vše',
         },
         {
             id: 1,
-            name: "Skladem",
+            name: 'skladem',
         },
         {
             id: 2,
-            name: "Vyprodáno",
+            name: 'vyprodáno',
+        },
+    ];
+
+    const color = [
+        {
+            id: 0,
+            name: '---',
+        },
+        {
+            id: 1,
+            name: 'bílé',
+        },
+        {
+            id: 2,
+            name: 'červené',
+        },
+        {
+            id: 3,
+            name: 'růžové',
+        },
+    ];
+
+    const sugar = [
+        {
+            id: 0,
+            name: '---',
+        },
+        {
+            id: 1,
+            name: 'suché',
+        },
+        {
+            id: 2,
+            name: 'polosuché',
+        },
+        {
+            id: 3,
+            name: 'polosladké',
+        },
+        {
+            id: 4,
+            name: 'sladké',
         },
     ];
 
     const sort = [
         {
             id: 0,
-            name: "Výchozí",
+            name: 'výchozí',
         },
         {
             id: 1,
-            name: "Nejlevnější",
+            name: 'nejlevnější',
         },
         {
             id: 2,
-            name: "Nejdražší",
+            name: 'nejdražší',
         },
     ];
 
@@ -183,42 +283,79 @@ export const CataloguePage = () => {
     const selectStatusElm = element.querySelector('#select-status');
     selectStatusElm.innerHTML = status
         .map(oneOption =>
-            `<option value="${oneOption.id}">${oneOption.name}</option>`
+            `<option value="${oneOption.id}">${oneOption.name.charAt(0).toUpperCase() + oneOption.name.slice(1)}</option>`
+        )
+        .join('');
+
+    const selectColorElm = element.querySelector('#select-color');
+    selectColorElm.innerHTML = color
+        .map(oneOption =>
+            `<option value="${oneOption.id}">${oneOption.name.charAt(0).toUpperCase() + oneOption.name.slice(1)}</option>`
+        )
+        .join('');
+
+    const selectSugarElm = element.querySelector('#select-sugar');
+    selectSugarElm.innerHTML = sugar
+        .map(oneOption =>
+            `<option value="${oneOption.id}">${oneOption.name.charAt(0).toUpperCase() + oneOption.name.slice(1)}</option>`
         )
         .join('');
 
     const selectSortElm = element.querySelector('#select-sort');
     selectSortElm.innerHTML = sort
         .map(oneOption =>
-            `<option value="${oneOption.id}">${oneOption.name}</option>`
+            `<option value="${oneOption.id}">${oneOption.name.charAt(0).toUpperCase() + oneOption.name.slice(1)}</option>`
         )
         .join('');
 
     element.querySelector('.filters').addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const select = element.querySelector('#select-status').value;
-        console.log(select);
-
-        let result = '';
-        if (select === '1') {
-            result = items.filter((oneItem) => oneItem.status === true);
-        } else if (select === '2') {
-            result = items.filter((oneItem) => oneItem.status === false);
+        const textStatus = element.querySelector('#select-status').options[element.querySelector('#select-status').selectedIndex].text;
+        let resultStatus;
+        if (textStatus === 'Skladem') {
+            resultStatus = '.status === true)';
+        } else if (textStatus === 'Vyprodáno') {
+            resultStatus = '.status ==== false)';
         } else {
-            result = items.filter((oneItem) => oneItem.status === true || oneItem.status === false);
+            resultStatus = '.status === true || item.status === false)';
         }
 
-        const listItemElm = result
+        const textColor = element.querySelector('#select-color').options[element.querySelector('#select-color').selectedIndex].text;
+        let resultColor;
+        if (textColor === '---') {
+            resultColor = `.feature.color === 'bílé' || item.feature.color === 'červené' || item.feature.color === 'růžové')`;
+        } else {
+            resultColor = `.feature.color === '` + textColor.toLowerCase() + `')`;
+        }
+
+        const textSugar = element.querySelector('#select-sugar').options[element.querySelector('#select-sugar').selectedIndex].text;
+        let resultSugar;
+        if (textSugar === '---') {
+            resultSugar = `.feature.sugar === 'suché' || item.feature.sugar === 'brut' || item.feature.sugar === 'sladké')`;
+        } else {
+            resultSugar = `.feature.sugar === '` + textSugar.toLowerCase() + `')`;
+        }
+
+        const result = items.filter(item => eval(`(item${resultStatus}`) && eval(`(item${resultColor}`) && eval(`(item${resultSugar}`));
+
+        let listItemElm;
+
+        if (result.length > 0) {
+
+            listItemElm = result
             .map(oneItem => Item(
-              {
-                  id: oneItem.id,
-                  imageUrl: oneItem.imageUrl,
-                  title: oneItem.title,
-                  price: oneItem.price,
-                  status: oneItem.status,
-              })
+                {
+                    id: oneItem.id,
+                    imageUrl: oneItem.imageUrl,
+                    title: oneItem.title,
+                    price: oneItem.price,
+                    status: oneItem.status,
+                })
             );
+        } else {
+            listItemElm = 'Zadaným kritériím neodpovídají žádné záznamy.';
+        }
 
         element.querySelector('.catalog').innerHTML = `
             <div id="loader">

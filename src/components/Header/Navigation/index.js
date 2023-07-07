@@ -1,4 +1,6 @@
 import './style.scss';
+import iconBars from './img/icon-bars.svg';
+import iconXmark from './img/icon-xmark.svg';
 
 export const Navigation = () => {
 
@@ -6,7 +8,7 @@ export const Navigation = () => {
     element.classList.add('navigation');
 
     element.innerHTML = `
-        <div class="navigation__toogler">☰</div>
+        <div class="navigation__toggler"><img class="navigation__toggler--icon" src="${iconBars}" width="20" height="20" alt="icon toggler" /></div>
         <ul class="navigation__list">
             <li class="navigation__item"><a href="/" class="navigation__link link-home">Domů</a></li>
             <li class="navigation__item"><a href="/catalogue" class="navigation__link link-catalogue">Katalog</a></li>
@@ -25,7 +27,8 @@ export const Navigation = () => {
         element.querySelector('.link-contact').classList.add('navigation__link--active');
     }
 
-    element.querySelector('.navigation__toogler').addEventListener('click', () => {
+    let toggle;
+    element.querySelector('.navigation__toggler').addEventListener('click', () => {
         const content = element.querySelector('.navigation__list');
 
         if (content.style.maxHeight) {
@@ -35,15 +38,23 @@ export const Navigation = () => {
           }
 
         content.classList.toggle('show-navigation');
+
+        if (toggle === true) {
+            element.querySelector('.navigation__toggler--icon').src  = `${iconBars}`;
+            toggle = false;
+        } else {
+            element.querySelector('.navigation__toggler--icon').src  = `${iconXmark}`;
+            toggle = true;
+        }
     });
 
-    element.querySelector('.navigation__toogler').addEventListener('mouseover', () => {
-        element.querySelector('.navigation__toogler').style.cursor = 'pointer';
-        element.querySelector('.navigation__toogler').classList.add('hover');
+    element.querySelector('.navigation__toggler').addEventListener('mouseover', () => {
+        element.querySelector('.navigation__toggler').style.cursor = 'pointer';
+        element.querySelector('.navigation__toggler').classList.add('hover');
     });
 
-        element.querySelector('.navigation__toogler').addEventListener('mouseleave', () => {
-        element.querySelector('.navigation__toogler').classList.remove('hover');
+        element.querySelector('.navigation__toggler').addEventListener('mouseleave', () => {
+        element.querySelector('.navigation__toggler').classList.remove('hover');
     });
 
     return element;
