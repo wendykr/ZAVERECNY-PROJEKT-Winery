@@ -30,25 +30,31 @@ export const CataloguePage = () => {
         <section>
             <h2 class="section__title">Aktuálně nabízíme</h2>
             <div class="filters">
-                <form class="filters__form">
-                    <label class="filters__label">
-                        Dostupnost
-                    </label>
-                    <select class="filters__select" id="select-status">
-                    </select>
-                    <label class="filters__label">
-                        Barva
-                    </label>
-                    <select class="filters__select" id="select-color">
-                    </select>
-                    <label class="filters__label">
-                        Obsah cukru
-                    </label>
-                    <select class="filters__select" id="select-sugar">
-                    </select>
+                <form class="filters__form--main">
+                    <div class="filters__field">
+                        <label class="filters__label">
+                            Dostupnost
+                        </label>
+                        <select class="filters__select" id="select-status">
+                        </select>
+                    </div>
+                    <div class="filters__field">
+                        <label class="filters__label">
+                            Barva
+                        </label>
+                        <select class="filters__select" id="select-color">
+                        </select>
+                    </div>
+                    <div class="filters__field">
+                        <label class="filters__label">
+                            Obsah cukru
+                        </label>
+                        <select class="filters__select" id="select-sugar">
+                        </select>
+                    </div>
                 <button class="filters__button" type="submit">Zobrazit</button>
                 </form>
-                <div class="filters__form">
+                <div class="filters__form--minor">
                     <label class="filters__label">Řazení</label>
                     <select class="filters__select" id="select-sort">
                     </select>

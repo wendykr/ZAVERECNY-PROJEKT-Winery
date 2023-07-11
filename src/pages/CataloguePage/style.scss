@@ -35,8 +35,30 @@
         flex-direction: row;
     }
 
-    &__form {
+    &__form--main, &__form--minor {
         padding: 1.25rem;
+    }
+
+    &__form--main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        @media screen and (min-width: 660px) {
+            flex-direction: row;
+        }
+    }
+
+    &__form--minor {
+        align-self: start;
+
+        @media screen and (min-width: 660px) {
+            align-self: center;
+        }
+    }
+
+    &__field {
+        margin: 0.625rem 0.625rem 0.625rem 0;
     }
 
     &__label {
@@ -45,7 +67,6 @@
     }
 
     &__select {
-        margin: 0 0.625rem;
         padding: 0.3125rem;
         font-size: 1rem;
         color: color.$link-active;
