@@ -88,14 +88,15 @@ export const HomePage = () => {
     const prevElement = element.querySelector('.slider__nav--prev');
     const nextElement = element.querySelector('.slider__nav--next');
     let currentSlideItem = element.querySelector('.slider__item--active');
+    let timeout;
 
     const changeSlide = (forwards = true) => {
         let nextSlideItem = forwards
-        ? currentSlideItem.nextElementSibling
-        : currentSlideItem.previousElementSibling;
+            ? currentSlideItem.nextElementSibling
+            : currentSlideItem.previousElementSibling;
 
-        if(!nextSlideItem) {
-            nextSlideItem = forwards 
+        if (!nextSlideItem) {
+            nextSlideItem = forwards
             ? sliderItemsElement.firstElementChild
             : sliderItemsElement.lastElementChild;
         }
@@ -104,10 +105,38 @@ export const HomePage = () => {
         nextSlideItem.classList.add('slider__item--active');
 
         currentSlideItem = nextSlideItem;
-    }
 
-    nextElement.addEventListener('click', changeSlide);
-    prevElement.addEventListener('click', changeSlide.bind(null, false));
+        timeout = setTimeout(changeSlide, 5000);
+    };
+
+    const startSlideShow = () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(changeSlide, 5000);
+    };
+
+    const stopSlideShow = () => {
+        clearTimeout(timeout);
+    };
+
+    changeSlide();
+
+    element.querySelector('.slider').addEventListener('mouseenter', () => {
+        stopSlideShow();
+    });
+
+    element.querySelector('.slider').addEventListener('mouseleave', () => {
+        startSlideShow();
+    });
+
+    nextElement.addEventListener('click', () => {
+        stopSlideShow();
+        changeSlide();
+    });
+
+    prevElement.addEventListener('click', () => {
+        stopSlideShow();
+        changeSlide(false);
+    });
 
     const skillsElement = element.querySelectorAll('.skills');
 
