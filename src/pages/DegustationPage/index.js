@@ -89,6 +89,9 @@ export const DegustationPage = () => {
                     </form>
                 </div>
             </div>
+            <div id="message" class="form__text">
+                <div class="reservation__form--message">Vaši rezervaci jsme v pořádku přijali. Odpovíme vám, jak nejdříve to bude možné.</div>
+            </div>
         </section>
 
         <section class="background-white">
@@ -137,14 +140,16 @@ export const DegustationPage = () => {
 
     boxButtonElm.forEach((button, id) => {
         button.addEventListener('click', () => {
+            element.querySelector('.reservation__inner').style.display = 'block';
+            element.querySelector('.form__text').style.display = 'none';
 
             const content = element.querySelector('.reservation');
 
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
-              } else {
+            } else {
                 content.style.maxHeight = content.scrollHeight + "px";
-              }
+            }
 
             content.classList.toggle('reservation--active');
 
@@ -186,8 +191,12 @@ export const DegustationPage = () => {
     element.querySelector('.reservation').addEventListener('submit', (event) => {
         event.preventDefault();
 
-        element.querySelector('.reservation').innerHTML = `<div class="reservation__form--message">Zprávu jsme v pořádku přijali. Odpovíme vám, jak nejdříve to bude možné.</div>`;
-    })
+        element.querySelector('.reservation__form').reset();
+
+        element.querySelector('.reservation__inner').style.display = 'none';
+        element.querySelector('.reservation').style.maxHeight = '';
+        element.querySelector('.form__text').style.display = 'block';
+    });
 
     return element;
 }
