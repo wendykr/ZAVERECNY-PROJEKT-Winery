@@ -12,12 +12,12 @@ export const Header = () => {
 
   element.append(Navigation());
 
-  element.querySelector('.header__logo').addEventListener('click', () => {
+  element.querySelector('.header').addEventListener('click', () => {
     window.location.href = '/';
   });
 
-  element.querySelector('.header__logo').addEventListener('mouseover', () => {
-    element.querySelector('.header__logo').style.cursor = 'pointer';
+  element.querySelector('.header').addEventListener('mouseover', () => {
+    element.querySelector('.header').style.cursor = 'pointer';
   });
 
   return element;

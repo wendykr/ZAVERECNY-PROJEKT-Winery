@@ -17,6 +17,31 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     gap: 1.25rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 4.375rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -1.25rem;
+        background: linear-gradient(
+            to right, 
+                rgba(248, 249, 250, 0.13) 0%,
+                rgba(248, 249, 250, 0.13) 77%,
+                rgba(248, 249, 250, 0.5) 92%,
+                rgba(248, 249, 250, 0) 100%
+        );
+        transform: skewX(-30deg);
+        animation-name: shine;
+        animation-duration: 6s;
+        animation-timing-function: ease;
+        animation-delay: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        z-index: 1;
+    }
 
     @media screen and (min-width: 640px) {
         box-shadow: none;
@@ -31,4 +56,10 @@ header {
             transform: scale(1.1);
         }
     }
+}
+
+@keyframes shine {
+    0%   { left: -15%; }
+    50%  { left: 40%; }
+    100% { left: 85%; }
 }

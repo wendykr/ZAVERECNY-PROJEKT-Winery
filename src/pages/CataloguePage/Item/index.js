@@ -14,7 +14,9 @@ export const Item = ( props ) => {
     const element = document.createElement('div');
     element.classList.add('item');
     element.innerHTML = `
-        <img class="item__image" src="${imageUrl}" title="${title}" />
+        <div class="item__wrap">
+            <img class="item__image" src="${imageUrl}" title="${title}" />
+        </div>
         <h3 class="item__title">${title}</h3>
         <p class="item__price">${price} Kč</p>
         <p class="item__status${statusClass}">${status}</p>
