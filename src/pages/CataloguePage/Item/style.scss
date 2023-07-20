@@ -22,7 +22,7 @@
         overflow: hidden;
 
         &:hover::before {
-            content: "";
+            content: '';
             position: absolute;
             left: -110%;
             top: 0;

@@ -83,19 +83,19 @@
 
     &__cup {
         &::before {
-            content: "Na skleničku";
+            content: 'Na skleničku';
         }
     }
 
     &__relax {
         &::before {
-            content: "Na pohodu";
+            content: 'Na pohodu';
         }
     }
 
     &__customized {
         &::before {
-            content: "Na míru";
+            content: 'Na míru';
         }
     }
 
@@ -278,6 +278,6 @@
 .label--active {
 
     &:after {
-        content: "\2212";
+        content: '\2212';
     }
 }
