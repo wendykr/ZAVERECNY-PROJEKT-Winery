@@ -20,23 +20,23 @@ const twitterTitleElm = document.querySelector("meta[name='twitter:title']");
 const twitterDescriptionElm = document.querySelector("meta[name='twitter:description']");
 
 const imageSocKatalog = [
-  `${window.location.origin}/img/socials/og-soc-katalog-dark-v.jpg`,
-  `${window.location.origin}/img/socials/og-soc-katalog-light-v.jpg`,
+  `${window.location.origin}/images/og-soc-katalog-dark-v.jpg`,
+  `${window.location.origin}/images/og-soc-katalog-light-v.jpg`,
 ];
 
 const imageSocDegustace = [
-  `${window.location.origin}/img/socials/og-soc-degustace-dark-v.jpg`,
-  `${window.location.origin}/img/socials/og-soc-degustace-light-v.jpg`,
+  `${window.location.origin}/images/og-soc-degustace-dark-v.jpg`,
+  `${window.location.origin}/images/og-soc-degustace-light-v.jpg`,
 ];
 
 const imageSocKontakt = [
-  `${window.location.origin}/img/socials/og-soc-kontakt-dark-v.jpg`,
-  `${window.location.origin}/img/socials/og-soc-kontakt-light-v.jpg`,
+  `${window.location.origin}/images/og-soc-kontakt-dark-v.jpg`,
+  `${window.location.origin}/images/og-soc-kontakt-light-v.jpg`,
 ];
 
 const imageSocError = [
-  `${window.location.origin}/img/socials/og-soc-error-dark-v.jpg`,
-  `${window.location.origin}/img/socials/og-soc-error-light-v.jpg`,
+  `${window.location.origin}/images/og-soc-error-dark-v.jpg`,
+  `${window.location.origin}/images/og-soc-error-light-v.jpg`,
 ];
 
 const appElement = document.querySelector('#app');

@@ -41,5 +41,14 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: "public", to: "", noErrorOnMissing: true }],
     }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public', to: '', noErrorOnMissing: true },
+        { from: 'src/images', to: 'images', noErrorOnMissing: true },
+      ],
+    }),
   ],
+  performance: {
+    hints: false,
+  },
 };
