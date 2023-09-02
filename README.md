@@ -1,4 +1,4 @@
-# Winery Theme
+# Vinařství
 
 Závěrečný projekt semestrálního kurzu [JavaScript 2 JARO 2023](https://www.czechitas.cz/kurzy/javascript-2)
 
