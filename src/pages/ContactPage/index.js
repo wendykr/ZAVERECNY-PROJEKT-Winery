@@ -24,7 +24,7 @@ export const ContactPage = () => {
                     </div>
                     <div class="touch__content touch__email">
                         <p class="touch__title">E-mail</p>
-                        <a class="touch__description" href="mailto:info@winery-theme.netlify.app">info@winery-theme.netlify.app</a>
+                        <a class="touch__description" href="mailto:info@vinarstvi.netlify.app">info@vinarstvi.netlify.app</a>
                         <div class="touch__image">
                             <img class="touch__img" src="${iconEmail}" width="50" height="50" alt="icon email" />
                         </div>

@@ -7,7 +7,7 @@ export const Header = () => {
   element.innerHTML = `
     <div class="header">
       <div class="header__inner">
-        <img class="header__logo" src="${logoWine}" width="150" height="80" alt="logo Winery" />
+        <img class="header__logo" src="${logoWine}" width="150" height="80" alt="logo Vinařství" />
       </div>
     </div>
   `;

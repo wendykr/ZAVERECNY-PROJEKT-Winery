@@ -318,32 +318,29 @@ export const CataloguePage = () => {
         event.preventDefault();
 
         const textStatus = element.querySelector('#select-status').options[element.querySelector('#select-status').selectedIndex].text;
-        let resultStatus;
-        if (textStatus === 'Skladem') {
-            resultStatus = '.status === true)';
-        } else if (textStatus === 'Vyprodáno') {
-            resultStatus = '.status ==== false)';
-        } else {
-            resultStatus = '.status === true || item.status === false)';
-        }
-
         const textColor = element.querySelector('#select-color').options[element.querySelector('#select-color').selectedIndex].text;
-        let resultColor;
-        if (textColor === '---') {
-            resultColor = `.feature.color === 'bílé' || item.feature.color === 'červené' || item.feature.color === 'růžové')`;
-        } else {
-            resultColor = `.feature.color === '` + textColor.toLowerCase() + `')`;
-        }
-
         const textSugar = element.querySelector('#select-sugar').options[element.querySelector('#select-sugar').selectedIndex].text;
-        let resultSugar;
-        if (textSugar === '---') {
-            resultSugar = `.feature.sugar === 'suché' || item.feature.sugar === 'brut' || item.feature.sugar === 'sladké')`;
-        } else {
-            resultSugar = `.feature.sugar === '` + textSugar.toLowerCase() + `')`;
-        }
 
-        const result = items.filter(item => eval(`(item${resultStatus}`) && eval(`(item${resultColor}`) && eval(`(item${resultSugar}`));
+        const result = items.filter(item => {
+            let statusCondition = true;
+            if (textStatus === 'Skladem') {
+                statusCondition = item.status === true;
+            } else if (textStatus === 'Vyprodáno') {
+                statusCondition = item.status === false;
+            }
+
+            let colorCondition = true;
+            if (textColor !== '---') {
+                colorCondition = item.feature.color.toLowerCase() === textColor.toLowerCase();
+            }
+
+            let sugarCondition = true;
+            if (textSugar !== '---') {
+                sugarCondition = item.feature.sugar.toLowerCase() === textSugar.toLowerCase();
+            }
+
+            return statusCondition && colorCondition && sugarCondition;
+        });
 
         let listItemElm;
 
@@ -375,7 +372,7 @@ export const CataloguePage = () => {
             element.querySelector('#loader').style.display = "none";
             element.querySelector('.catalog').append(...listItemElm);
         }
-    })
+    });
 
     element.querySelector('#select-sort').addEventListener('change', (event) => {
 
@@ -440,7 +437,7 @@ export const CataloguePage = () => {
             element.querySelector('#loader').style.display = "none";
             element.querySelector('.catalog').append(...listItemElm);
         }
-    })
+    });
 
     return element;
 }
