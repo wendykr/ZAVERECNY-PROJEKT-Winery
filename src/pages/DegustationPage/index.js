@@ -48,6 +48,7 @@ export const DegustationPage = () => {
             </div>
             <div class="reservation">
                 <div class="reservation__inner">
+                <span class="reservation__close" title="zavřít">x</span>
                     <h3 class="reservation__title">Rezervační formulář</h3>
                     <form class="reservation__form">
                     <div class="form__flex--row">
@@ -138,20 +139,27 @@ export const DegustationPage = () => {
 
     const boxButtonElm = element.querySelectorAll('.box__button');
 
+    let isFormOpen = false;
+
     boxButtonElm.forEach((button, id) => {
         button.addEventListener('click', () => {
+
+            isFormOpen = true;
+
             element.querySelector('.reservation__inner').style.display = 'block';
             element.querySelector('.form__text').style.display = 'none';
 
             const content = element.querySelector('.reservation');
 
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
+            content.style.maxHeight = content.scrollHeight + "px";
 
-            content.classList.toggle('reservation--active');
+            boxButtonElm.forEach(btn => {
+                btn.style.color= '#8e8e8e';
+                btn.style.backgroundColor = '#d8d8d8';
+                btn.style.cursor = 'not-allowed';
+            });
+
+            content.classList.add('reservation--active');
 
             const boxCupElement = element.querySelector(".box__cup");
             const styleRulesCup = window.getComputedStyle(boxCupElement, "::before");
@@ -186,16 +194,58 @@ export const DegustationPage = () => {
             `;
             }
         });
+
+        element.querySelector('.reservation__close').addEventListener('click', () => {
+
+            isFormOpen = false;
+
+            element.querySelector('.reservation').style.maxHeight = null;
+            button.style.color= '#ffffff';
+            button.style.backgroundColor = '#7c6b4c';
+            button.style.cursor = 'pointer';
+
+            button.addEventListener('mouseenter', () => {
+                if (!isFormOpen) {
+                    button.style.backgroundColor = '#29241b';
+                }
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                if (!isFormOpen) {
+                    button.style.backgroundColor = '#7c6b4c';
+                }
+            });
+        });
     });
 
     element.querySelector('.reservation').addEventListener('submit', (event) => {
         event.preventDefault();
+
+        isFormOpen = false;
 
         element.querySelector('.reservation__form').reset();
 
         element.querySelector('.reservation__inner').style.display = 'none';
         element.querySelector('.reservation').style.maxHeight = '';
         element.querySelector('.form__text').style.display = 'block';
+
+        boxButtonElm.forEach((button) => {
+            button.style.color= '#ffffff';
+            button.style.backgroundColor = '#7c6b4c';
+            button.style.cursor = 'pointer';
+
+            button.addEventListener('mouseenter', () => {
+                if (!isFormOpen) {
+                    button.style.backgroundColor = '#29241b';
+                }
+            });
+
+            button.addEventListener('mouseleave', () => {
+                if (!isFormOpen) {
+                    button.style.backgroundColor = '#7c6b4c';
+                }
+            });
+        });
     });
 
     return element;

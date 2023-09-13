@@ -190,6 +190,19 @@
         text-align: center;
         font-weight: bold;
     }
+
+    &__close {
+        padding: 1rem;
+        color: color.$link-default;
+        font-size: 1.875rem;
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+
+        &:hover {
+            color: color.$link-active;
+        }
+    }
 }
 
 .form__flex--row {
